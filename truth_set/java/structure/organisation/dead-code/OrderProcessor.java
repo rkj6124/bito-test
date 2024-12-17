@@ -22,11 +22,7 @@ class OrderProcessor {
         orders.add(order);
         logger.log("Processing order ID: " + order.getId());
 
-        if (true) {
-            applyTax(order);
-        } else {
-            applyDiscount(order);
-        }
+        applyTax(order);
 
         if (false) {
             sendConfirmationEmail(order);
