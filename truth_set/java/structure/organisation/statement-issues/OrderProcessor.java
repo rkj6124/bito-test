@@ -47,9 +47,9 @@ class Order {
 
 public class OrderProcessor {
     public static double processOrder(Order order, double taxRate) {
-        double total = (calculateItemsTotal(order.getItems()) - 
-                      (order.getDiscountCode() != null ? 50 : 0)) * 
-                      (1 + taxRate);
+        double itemsTotal = calculateItemsTotal(order.getItems());
+        double discount = order.getDiscountCode() != null ? 50 : 0;
+        double total = (itemsTotal - discount) * (1 + taxRate);
         
         System.out.printf("Order %s processed. Total after tax: $%.2f%n", 
                          order.getId(), total);
