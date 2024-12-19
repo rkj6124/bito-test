@@ -15,5 +15,5 @@ processor = OrderProcessor()
 try:
     final_total = processor.apply_discounts(120, 6)
     print(f"Final Total: ${final_total}")
-except Exception as error:
+except TooManyDiscountsError as error:
     print(f"Error: {str(error)}")
