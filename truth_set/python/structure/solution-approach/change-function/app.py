@@ -11,28 +11,14 @@ db = Database()
 
 def get_all_users() -> Dict[str, Optional[Union[List[User], str]]]:
     """
-    Fetches all users from the database using deprecated query method.
-    """
-    result = db.query('SELECT id, name, email FROM users;')
-    return result
-
-def add_user(name: str, email: str) -> Dict[str, Optional[Union[List, str]]]:
-    """
-    Adds a new user to the database using deprecated query method.
-    """
-    result = db.query('INSERT INTO users (name, email) VALUES (%s, %s);', [name, email])
-    return result
-
-def get_all_users_new() -> Dict[str, Optional[Union[List[User], str]]]:
-    """
-    Fetches all users from the database using new execute_query method.
+    Fetches all users from the database.
     """
     result = db.execute_query('SELECT id, name, email FROM users;')
     return result
-
-def add_user_new(name: str, email: str) -> Dict[str, Optional[Union[List, str]]]:
+ 
+def add_user(name: str, email: str) -> Dict[str, Optional[Union[List, str]]]:
     """
-    Adds a new user to the database using new execute_query method.
+    Adds a new user to the database.
     """
     result = db.execute_query('INSERT INTO users (name, email) VALUES (%s, %s);', [name, email])
     return result
