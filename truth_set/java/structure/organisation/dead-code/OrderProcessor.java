@@ -37,11 +37,14 @@ class OrderProcessor {
         logger.log("Applied tax to order ID: " + order.getId());
     }
 
-    private void applyDiscount(Order order) {
-        double discount = calculateDiscount(order.getTotal());
-        order.setTotal(order.getTotal() - discount);
-        logger.log("Applied discount to order ID: " + order.getId());
-    }
+     public void processOrder(Order order) {
+         orders.add(order);
+         logger.log("Processing order ID: " + order.getId());
+
+         applyTax(order);
+         applyDiscount(order);
+
+         int processingTime = calculateProcessingTime(order);
 
     private void sendConfirmationEmail(Order order) {
         logger.log("Sent confirmation email for order ID: " + order.getId());
