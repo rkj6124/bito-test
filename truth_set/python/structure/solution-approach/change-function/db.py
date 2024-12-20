@@ -9,6 +9,8 @@ class DBResult(TypedDict):
     data: Optional[List]
     error: Optional[str]
 
+# other comment
+# other comment 1
 class Database:
     def __init__(self):
         from os import environ
