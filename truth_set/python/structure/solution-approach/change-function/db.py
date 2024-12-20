@@ -9,6 +9,7 @@ class DBResult(TypedDict):
 
 class Database:
     def __init__(self):
+        from os import environ
         self.conn = psycopg2.connect(
             user='your_db_user',
             host='localhost',
