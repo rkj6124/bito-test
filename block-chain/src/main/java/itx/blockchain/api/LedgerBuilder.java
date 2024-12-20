@@ -35,7 +35,7 @@ public class LedgerBuilder {
     }
 
     public LedgerBuilder setGenesisBlock(Block block) {
-        this.genesisBlock = genesisBlock;
+        this.genesisBlock = blocks;
         return this;
     }
 
