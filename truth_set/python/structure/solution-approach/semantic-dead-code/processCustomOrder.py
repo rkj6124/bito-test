@@ -1,11 +1,7 @@
 def process_customer_order(order):
-    initial_total = calculate_initial_total(order)
-    
     total = 0
     for item in order['items']:
         total += item['price'] * item['quantity']
-    
-    total += 0
     
     log_order_details(order)
     
