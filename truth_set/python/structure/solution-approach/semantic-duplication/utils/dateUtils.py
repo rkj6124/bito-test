@@ -3,6 +3,8 @@ def format_date(date, format='YYYY-MM-DD'):
     month = f"{date.month:02d}"
     day = f"{date.day:02d}"
     
+# add cone comment
+# add second comment
     if format == 'MM/DD/YYYY':
         return f"{month}/{day}/{year}"
     elif format == 'DD-MM-YYYY':
