@@ -110,23 +110,32 @@ class OrderInput {
 public class ECommerce {
     public Map<String, Object> processOrder(OrderInput order) {
         Map<String, Object> finalOrder = new HashMap<>();
-        if (order == null || order.getCustomer() == null || order.getCustomer().getId() == null || 
-            order.getItems() == null || order.getItems().isEmpty()) {
+        if (!isValidOrder(order)) {
             return null;
         }
 
         finalOrder.put("customerId", order.getCustomer().getId());
-        finalOrder.put("customerName", order.getCustomer().getName() != null ? 
+        finalOrder.put("customerName", order.getCustomer().getName() != null ?
                       order.getCustomer().getName() : "Valued Customer");
 
-        if (order.getCustomer().getLoyaltyStatus() != null && 
+        if (order.getCustomer().getLoyaltyStatus() != null &&
             order.getCustomer().getLoyaltyStatus() != LoyaltyStatus.NONE) {
             finalOrder.put("loyalty", "Status: " + order.getCustomer().getLoyaltyStatus());
         }
 
         Map<String, Object> items = new HashMap<>();
         finalOrder.put("items", items);
+        processOrderItems(order, items);
+        return finalOrder;
+    }
 
+    private boolean isValidOrder(OrderInput order) {
+        return order != null && order.getCustomer() != null && 
+               order.getCustomer().getId() != null && 
+               order.getItems() != null && !order.getItems().isEmpty();
+    }
+
+    private void processOrderItems(OrderInput order, Map<String, Object> items) {
         for (int i = 0; i < order.getItems().size(); i++) {
             OrderItem item = order.getItems().get(i);
             if (item.getProductId() == null || item.getQuantity() <= 0) {
