@@ -1,6 +1,3 @@
-# adding comment
-# adding comment agian
-#
 def format_date(date, format='YYYY-MM-DD'):
     year = date.year
     month = f"{date.month:02d}"
