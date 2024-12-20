@@ -19,6 +19,7 @@ public interface DataReader<T> {
      * @param data raw serialized instance of data class.
      * @return instance of data class.
      * @throws IOException thrown in case reading from byte array goes wrong.
+     * @throws IllegalArgumentException thrown if data is null or empty
      */
     T readData(byte[] data) throws IOException;
 
