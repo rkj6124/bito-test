@@ -38,7 +38,7 @@ public class SignedDataTests {
             SignedData signedDataOut = signedDataReader.readData(bytes);
             Assert.assertEquals(signedDataIn, signedDataOut);
         } catch (IOException e) {
-            Assert.fail();
+            Assert.fail("Failed to read/write signed data: " + e.getMessage());
         }
     }
 
