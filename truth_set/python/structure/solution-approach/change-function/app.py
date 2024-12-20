@@ -43,14 +43,3 @@ if __name__ == "__main__":
     else:
         print('Error adding user (Old):', add_user_result_old["error"])
 
-    users_new = get_all_users_new()
-    if users_new["success"]:
-        print('Users (New):', users_new["data"])
-    else:
-        print('Error fetching users (New):', users_new["error"])
-
-    add_user_result_new = add_user_new('Jane Doe', 'jane.doe@example.com')
-    if add_user_result_new["success"]:
-        print('User added successfully (New).')
-    else:
-        print('Error adding user (New):', add_user_result_new["error"])
