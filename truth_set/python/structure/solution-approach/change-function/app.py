@@ -9,7 +9,7 @@ class User:
 
 db = Database()
 
-def get_all_users() -> Dict[str, Optional[Union[List[User], str]]]:
+ def get_all_users() -> Dict[str, Any]:
     """
     Fetches all users from the database.
     """
