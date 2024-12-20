@@ -11,6 +11,9 @@ public class BlockImpl implements Block {
     private final byte[] previousHash;
 
     public BlockImpl(byte[] data, byte[] hash, byte[] previousHash) {
+        Objects.requireNonNull(data, "data cannot be null");
+        Objects.requireNonNull(hash, "hash cannot be null");
+        Objects.requireNonNull(previousHash, "previousHash cannot be null");
         this.data = Arrays.copyOf(data, data.length);
         this.hash = Arrays.copyOf(hash, hash.length);
         this.previousHash = Arrays.copyOf(previousHash, previousHash.length);
