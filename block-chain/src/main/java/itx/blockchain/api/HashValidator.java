@@ -11,8 +11,8 @@ public interface HashValidator {
      * @param hash {@link Block} hash to be validated.
      * @return true if hash is valid, false otherwise.
      */
-    default boolean checkHash(byte[] hash) {
-        return true;
-    }
+   default boolean checkHash(byte[] hash) {
+        throw new UnsupportedOperationException("Hash validation must be implemented");
+   }
 
 }
