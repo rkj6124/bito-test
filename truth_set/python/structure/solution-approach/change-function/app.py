@@ -6,6 +6,11 @@ class User:
         self.id = id
         self.name = name
         self.email = email
+class User_1:
+    def __init__(self, id: int, name: str, email: str):
+        self.id = id
+        self.name = name
+        self.email = email
 
 db = Database()
 
@@ -17,6 +22,13 @@ def get_all_users() -> Dict[str, Optional[Union[List[User], str]]]:
     return result
  
 def add_user(name: str, email: str) -> Dict[str, Optional[Union[List, str]]]:
+    """
+    Adds a new user to the database.
+    """
+    result = db.execute_query('INSERT INTO users (name, email) VALUES (%s, %s);', [name, email])
+    return result
+
+def add_user_1(name: str, email: str) -> Dict[str, Optional[Union[List, str]]]:
     """
     Adds a new user to the database.
     """
