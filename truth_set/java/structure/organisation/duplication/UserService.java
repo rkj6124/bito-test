@@ -90,14 +90,14 @@ class UserService {
         return false;
     }
 
-    public double calculateDiscount(double price) {
-        double discountRate = 0.1;
-        return price * discountRate;
+    private double calculateRateBasedAmount(double price, double rate) {
+        return price * rate;
     }
-
+    public double calculateDiscount(double price) {
+        return calculateRateBasedAmount(price, 0.1);
+    }
     public double calculateTax(double price) {
-        double taxRate = 0.1;
-        return price * taxRate;
+        return calculateRateBasedAmount(price, 0.1);
     }
 
     private String generateUniqueId() {
