@@ -52,12 +52,6 @@ class UserService {
         return user;
     }
 
-    public User addUser(String name, int age) {
-        User user = new User(generateUniqueId(), name, age);
-        database.save(user);
-        return user;
-    }
-
     public void updateUserEmail(String userId, String email) {
         User user = database.findUserById(userId);
         if (user != null) {
