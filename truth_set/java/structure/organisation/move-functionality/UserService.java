@@ -32,10 +32,13 @@ class OrderService {
         this.orders = new ArrayList<>();
     }
 
-    public void placeOrder(Order order) {
-        orders.add(order);
-        notify("Order placed: " + order.getId());
-    }
+  public void placeOrder(Order order) {
+      orders.add(order);
+      notify("Order placed: " + order.getId());
+      orderManagementService.addOrder(order);
+      notificationService.notify("Order placed: " + order.getId());
+  }
+
 
     public void cancelOrder(int orderId) {
         orders.removeIf(order -> order.getId() == orderId);
