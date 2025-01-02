@@ -6,16 +6,13 @@ class User:
         self.id = id
         self.name = name
         self.email = email
-
 db = Database()
-
  def get_all_users() -> Dict[str, Any]:
     """
     Fetches all users from the database.
     """
     result = db.execute_query('SELECT id, name, email FROM users;')
     return result
- 
 def add_user(name: str, email: str) -> Dict[str, Optional[Union[List, str]]]:
     """
     Adds a new user to the database.
@@ -36,10 +33,8 @@ if __name__ == "__main__":
         print('Users (Old):', users_old["data"])
     else:
         print('Error fetching users (Old):', users_old["error"])
-
     add_user_result_old = add_user('John Doe', 'john.doe@example.com')
     if add_user_result_old["success"]:
         print('User added successfully (Old).')
     else:
         print('Error adding user (Old):', add_user_result_old["error"])
-
