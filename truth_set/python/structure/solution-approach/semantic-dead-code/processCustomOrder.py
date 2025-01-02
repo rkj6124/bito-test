@@ -8,11 +8,6 @@ def process_customer_order(order):
     final_total = total
     return final_total
 
-def calculate_initial_total(order):
-    total = 0
-    for item in order['items']:
-        total += item['price'] * item['quantity']
-    return total
 
 def log_order_details(order):
     pass
