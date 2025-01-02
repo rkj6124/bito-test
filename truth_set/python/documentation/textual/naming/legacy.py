@@ -1,6 +1,4 @@
-def proc(u):
-    if not u:
-        raise ValueError("Input dictionary cannot be empty")
+ def proc(u):
     if 'nm' not in u:
         raise ValueError("Invalid input")
     u['a'] = u['nm'].upper()
