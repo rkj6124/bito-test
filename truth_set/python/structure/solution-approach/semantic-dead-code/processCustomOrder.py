@@ -5,8 +5,7 @@ def process_customer_order(order):
     
     log_order_details(order)
     
-    final_total = total
-    return final_total
+    return total
 
 def calculate_initial_total(order):
     total = 0
