@@ -1,7 +1,10 @@
-class OrderProcessor:
-    def apply_discounts(self, order_total, discounts_applied):
-        if discounts_applied > 5:
-            raise Exception("Too many discounts applied.")
+class TooManyDiscountsError(Exception):
+    pass
+
+ class OrderProcessor:
+   def apply_discounts(self, order_total, discounts_applied):
+       if discounts_applied > 5:
+            raise TooManyDiscountsError("Too many discounts applied.")
             
         if order_total > 100:
             order_total -= 10  
